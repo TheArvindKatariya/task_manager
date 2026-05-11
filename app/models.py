@@ -4,7 +4,7 @@ from datetime import datetime
 
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(150),case_sensitive=False, unique=True, nullable=False)
+    username = db.Column(db.String(150), unique=True, nullable=False)
     password_hash = db.Column(db.String(255), nullable=False)
     tasks = db.relationship('Task', backref='owner', lazy=True)
 
